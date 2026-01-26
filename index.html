@@ -236,11 +236,50 @@
             </a>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-2xl text-white">
+            <button id="mobile-menu-button" class="md:hidden text-2xl text-white outline-none focus:outline-none"
+                aria-label="Open Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#981E3D] z-[60] flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none translate-x-full">
+        <button id="mobile-menu-close"
+            class="absolute top-6 right-6 text-4xl text-white hover:text-candy-gold transition-colors"
+            aria-label="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Background Pattern for Menu -->
+        <div class="absolute inset-0 bg-pattern-logo opacity-5 pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col items-center space-y-10 text-3xl font-bold text-white text-center">
+            <div class="font-display text-6xl text-candy-gold mb-6 drop-shadow-lg">Mr. Candy</div>
+            <a href="#" class="mobile-menu-link hover:text-candy-gold transition-all transform hover:scale-110">Hlavní
+                stránka</a>
+            <a href="#about" class="mobile-menu-link hover:text-candy-gold transition-all transform hover:scale-110">O
+                nás</a>
+            <a href="#loyalty"
+                class="mobile-menu-link hover:text-candy-gold transition-all transform hover:scale-110">Věrnostní
+                karta</a>
+            <a href="#contact"
+                class="mobile-menu-link hover:text-candy-gold transition-all transform hover:scale-110">Kontakt</a>
+
+            <a href="#contact"
+                class="mobile-menu-link bg-candy-gold text-candy-red px-14 py-5 rounded-full font-black shadow-premium hover:bg-white transition-all mt-8">
+                NAVŠTÍVIT PRODEJNU
+            </a>
+        </div>
+
+        <!-- Mobile Decor -->
+        <div class="absolute bottom-10 opacity-30 text-white flex space-x-10 text-3xl">
+            <i class="fa-solid fa-candy-cane"></i>
+            <i class="fa-solid fa-cookie"></i>
+            <i class="fa-solid fa-ice-cream"></i>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <header class="relative min-h-[90vh] flex items-center pt-20 bg-candy-red overflow-hidden">
@@ -602,6 +641,49 @@
         </div>
     </footer>
 
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+
+        function openMenu() {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-full');
+            mobileMenu.classList.add('opacity-100', 'translate-x-0');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('opacity-100', 'translate-x-0');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-x-full');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        mobileMenuButton.addEventListener('click', openMenu);
+        mobileMenuClose.addEventListener('click', closeMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close on Esc key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        // Sticky Nav Effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'bg-candy-red/100');
+                nav.classList.remove('py-3', 'bg-candy-red/95');
+            } else {
+                nav.classList.add('py-3', 'bg-candy-red/95');
+                nav.classList.remove('py-2', 'bg-candy-red/100');
+            }
+        });
+    </script>
 </body>
 
 </html>
