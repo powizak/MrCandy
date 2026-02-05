@@ -12,6 +12,9 @@
     <meta name="author" content="Mr. Candy s.r.o.">
     <meta name="robots" content="index, follow">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="svg/MR_Candy_favicon.svg">
+
     <!-- GEO Tags -->
     <meta name="geo.region" content="CZ-JC">
     <meta name="geo.placename" content="Tábor">
@@ -221,8 +224,11 @@
         class="fixed w-full z-50 transition-all duration-300 bg-candy-red/95 backdrop-blur-md shadow-lg border-b border-white/10 text-candy-cream">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#"
-                class="font-display text-4xl text-white transform hover:scale-105 transition-transform drop-shadow-md">
-                Mr. Candy
+                class="flex items-center gap-3 transform hover:scale-105 transition-transform drop-shadow-md group">
+                <img src="svg/MR_Candy_logo.svg" alt="Mr. Candy Icon" class="h-10 md:h-12 w-auto">
+                <span
+                    class="font-display text-3xl md:text-4xl text-white group-hover:text-candy-gold transition-colors">Mr.
+                    Candy</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-8 text-lg font-medium">
@@ -328,7 +334,7 @@
                     class="inline-block py-1 px-4 rounded-full bg-candy-gold/20 border border-candy-gold text-candy-gold font-bold text-sm mb-6 uppercase tracking-wider">
                     <i class="fa-solid fa-star mr-2"></i> Prémiové sladkosti
                 </span>
-                <h1 class="font-display text-6xl md:text-8xl mb-6 text-white drop-shadow-lg leading-tight">
+                <h1 class="font-display text-5xl sm:text-7xl md:text-8xl mb-6 text-white drop-shadow-lg leading-tight">
                     Sladká <br />
                     <span class="text-candy-gold">Odměna</span>
                 </h1>
@@ -353,17 +359,19 @@
             <div class="relative hidden md:block">
                 <div class="absolute inset-0 bg-candy-gold rounded-full blur-[100px] opacity-20 animate-pulse"></div>
                 <div
-                    class="relative z-10 bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-[2rem] shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-700">
+                    class="relative z-10 bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-[2rem] shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-700 max-w-md lg:max-w-2xl mx-auto md:ml-auto">
                     <div class="aspect-[4/3] rounded-[1.8rem] overflow-hidden bg-candy-dark relative group">
                         <!-- Simulated Card Visual based on upload -->
                         <div
-                            class="absolute inset-0 flex flex-col items-center justify-center bg-candy-red p-8 text-center border-[12px] border-candy-cream">
-                            <h3 class="font-display text-6xl text-white mb-2 rotate-[-5deg] drop-shadow-md">Mr. Candy
-                            </h3>
-                            <p class="text-candy-cream uppercase tracking-widest text-sm mb-8 font-bold opacity-80">
+                            class="absolute inset-0 flex flex-col items-center justify-center bg-candy-red p-6 lg:p-10 2xl:p-12 text-center border-[12px] border-candy-cream">
+                            <img src="svg/MR_Candy_logo.svg" alt="Mr. Candy"
+                                class="h-28 lg:h-48 w-auto mb-4 lg:mb-8 rotate-[-5deg] drop-shadow-xl transition-all duration-500">
+                            <p
+                                class="text-candy-cream uppercase tracking-widest text-xs lg:text-xl mb-0 lg:mb-8 font-bold opacity-80">
                                 Obchod se sladkostmi</p>
+                            <!-- Badge - Hidden on Tablet/Desktop, Visible ONLY on 2XL (1536px+) -->
                             <div
-                                class="w-24 h-24 bg-candy-cream rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform p-4">
+                                class="hidden 2xl:flex w-24 h-24 lg:w-32 lg:h-32 bg-candy-cream rounded-full items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform p-4 lg:p-6">
                                 <img src="svg/CANDY-4.svg" class="w-full h-full object-contain" alt="">
                             </div>
                         </div>
